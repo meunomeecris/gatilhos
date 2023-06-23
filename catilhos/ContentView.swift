@@ -11,22 +11,41 @@ struct ContentView: View {
     @State private var catImageURL: String = ""
     
     var body: some View {
-        VStack {
-            if let url = URL(string: catImageURL),
-               let imageData = try? Data(contentsOf: url),
-               let image = UIImage(data: imageData) {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else {
-                Text("Failed to load cat image.")
+            VStack {
+                Text("CATtilhos")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                Spacer()
+                if let url = URL(string: catImageURL),
+                   let imageData = try? Data(contentsOf: url),
+                   let image = UIImage(data: imageData) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        
+                } else {
+                    Text("Failed to load cat image.")
+                        .foregroundColor(Color.white)
+                        .aspectRatio(contentMode: .fill)
+                        .background(Color.black)
+                }
+                Spacer()
+                Button(action: {
+                    fetchCatImage()
+                }) {
+                    Text("more CATilhos")
+                        .padding(25)
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(4)
+                        
+                }
+                .padding(.top)
             }
-        }
-        .onAppear {
-            fetchCatImage()
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black)
     }
-    
     
     func fetchCatImage() {
         guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?api_key=live_zDdhkI9KBZ3NubVIDvk3sbp62qME5SGa1nq7HvOZJI749ghjPr4jVOlu0MsWqSnj") else {
@@ -58,4 +77,6 @@ struct ContentView_Previews: PreviewProvider {
 
 struct CatData: Codable {
     let url: String
+    let width: Int
+    let height: Int
 }

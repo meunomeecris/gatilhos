@@ -7,5 +7,5 @@
 
 import Foundation
 class RequestViewModel: ObservableObject {
-
+    
 }
