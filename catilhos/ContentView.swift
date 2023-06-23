@@ -27,6 +27,7 @@ struct ContentView: View {
         }
     }
     
+    
     func fetchCatImage() {
         guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?api_key=live_zDdhkI9KBZ3NubVIDvk3sbp62qME5SGa1nq7HvOZJI749ghjPr4jVOlu0MsWqSnj") else {
             return
