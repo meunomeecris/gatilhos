@@ -12,11 +12,10 @@ struct CatsView: View {
     
     var body: some View {
         VStack {
-            Text("CATtilhos")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+            HeaderView(text: "CATILHOS", foregroundColor: .white)
+            
             Spacer()
+            
             if let url = URL(string: viewModel.catImageURL),
                let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData) {
@@ -30,21 +29,41 @@ struct CatsView: View {
                     .aspectRatio(contentMode: .fill)
                     .background(Color.black)
             }
+            
             Spacer()
-            Button(action: {
-                viewModel.fetchCatImage()
-            }) {
-                Text("more CATilhos")
-                    .padding(25)
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                    .cornerRadius(4)
+            
+            HStack(){
+                ButtonView(
+                    title: "MORE PHOTOS",
+                    backgroundColor: .blue,
+                    foregroundColor: .white,
+                    cornerRadius: 10,
+                    fontText: 16,
+                    action: {
+                        viewModel.fetchCatImage()
+                    })
+                .frame(maxWidth: .infinity, maxHeight: 45)
                 
+                Spacer()
+                
+                ButtonImageView(
+                    systemImage: "heart",
+                    font: 25,
+                    backgroundColor: .red,
+                    foregroundColor: .white,
+                    cornerRadius: 10,
+                    width: 45, height: 45,
+                    action: {
+                        
+                    })
             }
-            .padding(.top)
+            .padding()
+            .padding(.top, 20)
+            .padding(.bottom, 80)
+            
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black)
     }
 }
 

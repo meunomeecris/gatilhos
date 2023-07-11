@@ -13,10 +13,12 @@ struct MainView: View {
             CatsView()
                 .tabItem {
                     Label("Cats", systemImage: "house")
+                        .foregroundColor(.white)
                 }
             FavoritesView()
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
+                        .foregroundColor(.white)
                 }
         }
     }
