@@ -12,8 +12,6 @@ struct CatsView: View {
     
     var body: some View {
         VStack {
-            HeaderView(text: "CATILHOS", foregroundColor: .white)
-            
             Spacer()
             
             if let url = URL(string: viewModel.catImageURL),
@@ -22,19 +20,18 @@ struct CatsView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                
             } else {
-                Text("Failed to load cat image.")
-                    .foregroundColor(Color.white)
-                    .aspectRatio(contentMode: .fill)
-                    .background(Color.black)
+                Text("Loading images...")
+                    .font(.system(.headline))
+                    .foregroundColor(.gray)
             }
+                
             
             Spacer()
             
             HStack(){
                 ButtonView(
-                    title: "MORE PHOTOS",
+                    title: "MORE",
                     backgroundColor: .blue,
                     foregroundColor: .white,
                     cornerRadius: 10,
@@ -42,9 +39,9 @@ struct CatsView: View {
                     action: {
                         viewModel.fetchCatImage()
                     })
-                .frame(maxWidth: .infinity, maxHeight: 45)
+                .frame(maxWidth: 120, maxHeight: 45)
                 
-                Spacer()
+//                Spacer()
                 
                 ButtonImageView(
                     systemImage: "heart",
@@ -52,18 +49,16 @@ struct CatsView: View {
                     backgroundColor: .red,
                     foregroundColor: .white,
                     cornerRadius: 10,
-                    width: 45, height: 45,
+                    width: 80, height: 45,
                     action: {
                         
                     })
             }
             .padding()
             .padding(.top, 20)
-            .padding(.bottom, 80)
+            .padding(.bottom, 50)
             
         }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
     }
 }
 

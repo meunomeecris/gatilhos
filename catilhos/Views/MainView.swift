@@ -9,17 +9,24 @@ import SwiftUI
 
 struct MainView: View {    
     var body: some View {
-        TabView {
-            CatsView()
-                .tabItem {
-                    Label("Cats", systemImage: "house")
-                        .foregroundColor(.white)
-                }
-            FavoritesView()
-                .tabItem {
-                    Label("Favorites", systemImage: "heart")
-                        .foregroundColor(.white)
-                }
+        VStack {
+            HeaderView(
+                text: "CATILHOS",
+                foregroundColor: .blue)
+            .padding(.top, 30)
+            
+            TabView {
+                CatsView()
+                    .tabItem {
+                        Label("Cats", systemImage: "house")
+                            .foregroundColor(.white)
+                    }
+                FavoritesView()
+                    .tabItem {
+                        Label("Favorites", systemImage: "heart")
+                            .foregroundColor(.white)
+                    }
+            }
         }
     }
 }
