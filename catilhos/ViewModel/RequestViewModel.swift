@@ -1,5 +1,5 @@
 //
-//  RequestViewModel.swift
+//  CatsViewModel.swift
 //  catilhos
 //
 //  Created by Cris Messias on 23/06/23.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-class RequestViewModel: ObservableObject {
+class CatsViewModel: ObservableObject {
+    @Published var isFavorite = false
     @Published var catImageURL: String = ""
     
     func fetchCatImage() {

@@ -9,6 +9,7 @@ import Foundation
 
 
 struct CatDataModel: Codable {
+    let id: String
     let url: String
     let width: Int
     let height: Int

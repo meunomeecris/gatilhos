@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CatsView: View {
-    @StateObject var viewModel = RequestViewModel()
+    @StateObject var catsViewModel = CatsViewModel()
     
     var body: some View {
         VStack {
             Spacer()
             
-            if let url = URL(string: viewModel.catImageURL),
+            if let url = URL(string: catsViewModel.catImageURL),
                let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData) {
                 Image(uiImage: image)
@@ -37,21 +37,21 @@ struct CatsView: View {
                     cornerRadius: 10,
                     fontText: 16,
                     action: {
-                        viewModel.fetchCatImage()
+                        catsViewModel.fetchCatImage()
                     })
                 .frame(maxWidth: 120, maxHeight: 45)
                 
 //                Spacer()
                 
                 ButtonImageView(
-                    systemImage: "heart",
+                    systemImage: catsViewModel.isFavorite ? "heart.fill" : "heart",
                     font: 25,
                     backgroundColor: .red,
                     foregroundColor: .white,
                     cornerRadius: 10,
                     width: 80, height: 45,
                     action: {
-                        
+                        catsViewModel.isFavorite.toggle()
                     })
             }
             .padding()
