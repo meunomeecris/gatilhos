@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    let items = (1...20).map { "Item \($0)" } //test
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+                ForEach(items, id: \.self) { item in
+                    VStack {
+                        
+                        //Favorites Images
+                        Text(item)
+                            .padding(40)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                        
+                        //Date that was favorited
+                        Text("Data")
+                    }
+                }
+            }
+            .padding()
+            .padding(.top, 12)
+        }
     }
 }
 
