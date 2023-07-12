@@ -7,18 +7,20 @@
 
 import SwiftUI
 
-struct MainView: View {    
+struct MainView: View {
+    @StateObject var favoriteViewModel = FavoriteViewModel()
+    
     var body: some View {
         VStack {
             HeaderView(text: "CATILHOS", foregroundColor: .blue)
                 .padding(.top, 30)
             
             TabView {
-                CatsView()
+                CatsView(favoriteViewModel: favoriteViewModel)
                     .tabItem {
                         Label("Cats", systemImage: "house")
                     }
-                FavoritesView()
+                FavoritesView(favoriteViewModel: favoriteViewModel)
                     .tabItem {
                         Label("Favorites", systemImage: "heart")
                     }

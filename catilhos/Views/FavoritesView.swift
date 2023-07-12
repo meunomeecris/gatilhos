@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    let items = (1...20).map { "Item \($0)" } //test
+    @StateObject var favoriteViewModel: FavoriteViewModel
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
-                ForEach(items, id: \.self) { item in
+                ForEach(favoriteViewModel.favorites, id: \.self) { item in
                     VStack {
                         
                         //Favorites Images
-                        Text(item)
+                        Text(item.url)
                             .padding(40)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color.blue)
@@ -37,6 +37,6 @@ struct FavoritesView: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView()
+        FavoritesView(favoriteViewModel: FavoriteViewModel())
     }
 }

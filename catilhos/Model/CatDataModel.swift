@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct CatDataModel: Codable {
+struct CatDataModel: Codable, Equatable, Hashable {
     let id: String
     let url: String
     let width: Int

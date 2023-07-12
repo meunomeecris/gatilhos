@@ -9,12 +9,13 @@ import SwiftUI
 
 struct CatsView: View {
     @StateObject var catsViewModel = CatsViewModel()
+    @StateObject var favoriteViewModel: FavoriteViewModel
     
     var body: some View {
         VStack {
             Spacer()
-            
-            if let url = URL(string: catsViewModel.catImageURL),
+            if let urlString = catsViewModel.cat?.url,
+               let url = URL(string: urlString),
                let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData) {
                 Image(uiImage: image)
@@ -44,14 +45,14 @@ struct CatsView: View {
 //                Spacer()
                 
                 ButtonImageView(
-                    systemImage: catsViewModel.isFavorite ? "heart.fill" : "heart",
+                    systemImage: favoriteViewModel.isFavorite(catsViewModel.cat) ? "heart.fill" : "heart",
                     font: 25,
                     backgroundColor: .red,
                     foregroundColor: .white,
                     cornerRadius: 10,
                     width: 80, height: 45,
                     action: {
-                        catsViewModel.isFavorite.toggle()
+                        favoriteViewModel.favoriteCat(catsViewModel.cat)
                     })
             }
             .padding()
@@ -64,6 +65,6 @@ struct CatsView: View {
 
 struct CatsView_Previews: PreviewProvider {
     static var previews: some View {
-        CatsView()
+        CatsView(favoriteViewModel: FavoriteViewModel())
     }
 }
