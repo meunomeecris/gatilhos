@@ -14,6 +14,7 @@ class FavoriteViewModel: ObservableObject {
         guard let cat = cat else {
             return
         }
+        
         favorites.append(cat)
     }
     
@@ -21,9 +22,18 @@ class FavoriteViewModel: ObservableObject {
         guard let cat = cat else {
             return false
         }
+        
         let isFav = favorites.contains(cat)
+        
         return isFav
     }
+    
+//    func deleteFav(_ cat: CatDataModel?) {
+//        guard let cat = cat else {
+//            return
+//        }
+//        //delete from favorite's list
+//    }
     
     
 }

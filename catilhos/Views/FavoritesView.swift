@@ -12,25 +12,22 @@ struct FavoritesView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
                 ForEach(favoriteViewModel.favorites, id: \.self) { item in
-                    VStack {
-                        
-                        //Favorites Images
-                        Text(item.url)
-                            .padding(40)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                        
-                        //Date that was favorited
-                        Text("Data")
-                    }
+                    let url = URL(string: item.url)
+                    AsyncImage(url: url, content: { returnedImage in
+                        returnedImage
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(12)
+                            .padding(16)
+                    }, placeholder: {
+                        ProgressView()
+                    })
+                    .frame(width: 150, height: 100)
+                    .padding()
                 }
             }
-            .padding()
-            .padding(.top, 12)
         }
     }
 }

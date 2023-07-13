@@ -22,7 +22,7 @@ struct CatsView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             } else {
-                Text("Loading images...")
+                ProgressView()
                     .font(.system(.headline))
                     .foregroundColor(.gray)
             }
@@ -38,13 +38,11 @@ struct CatsView: View {
                     cornerRadius: 10,
                     fontText: 16,
                     action: {
-                        catsViewModel.fetchCatImage()
+                        catsViewModel.fetchCat()
                     })
                 .frame(maxWidth: 120, maxHeight: 45)
                 
-//                Spacer()
-                
-                ButtonImageView(
+                ButtonIconView(
                     systemImage: favoriteViewModel.isFavorite(catsViewModel.cat) ? "heart.fill" : "heart",
                     font: 25,
                     backgroundColor: .red,

@@ -32,7 +32,7 @@ struct ButtonView: View {
     }
 }
 
-struct ButtonImageView: View {
+struct ButtonIconView: View {
     let systemImage: String
     let font: CGFloat
     let backgroundColor: Color
@@ -66,9 +66,9 @@ struct ButtonView_Previews: PreviewProvider {
     }
 }
 
-struct ButtonImageView_Previews: PreviewProvider {
+struct ButtonIconView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonImageView(systemImage: "hear", font: 25, backgroundColor: .red, foregroundColor: .blue, cornerRadius: 10, width: 45, height: 45, action: {
+        ButtonIconView(systemImage: "hear", font: 25, backgroundColor: .red, foregroundColor: .blue, cornerRadius: 10, width: 45, height: 45, action: {
             
         })
     }
