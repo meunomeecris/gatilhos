@@ -16,11 +16,11 @@ struct MainView: View {
                 .padding(.top, 30)
             
             TabView {
-                CatsView(favoriteViewModel: favoriteViewModel)
+                CatsView(catsViewModel: CatsViewModel(), favoriteViewModel: favoriteViewModel)
                     .tabItem {
                         Label("Cats", systemImage: "house")
                     }
-                FavoritesView(favoriteViewModel: favoriteViewModel)
+                FavoritesView(favoriteViewModel: favoriteViewModel, catsViewModel: CatsViewModel())
                     .tabItem {
                         Label("Favorites", systemImage: "heart")
                     }

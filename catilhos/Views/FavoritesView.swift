@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     @StateObject var favoriteViewModel: FavoriteViewModel
+    @StateObject var catsViewModel: CatsViewModel
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: nil, alignment: nil),
@@ -21,20 +22,34 @@ struct FavoritesView: View {
             LazyVGrid(columns: columns) {
                 ForEach(favoriteViewModel.favorites, id: \.self) { item in
                     let url = URL(string: item.url)
-                    AsyncImage(url: url, content: { returnedImage in
-                        Rectangle()
-                            .frame(height: 120)
-                            .cornerRadius(12)
-                            .overlay(
-                                returnedImage
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipped()
-                                
-                            )
-                    }, placeholder: {
-                        ProgressView()
-                    })
+                    VStack {
+                        AsyncImage(url: url, content: { returnedImage in
+                            Rectangle()
+                                .frame(height: 120)
+                                .cornerRadius(12)
+                                .overlay(
+                                    returnedImage
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipped()
+                                    
+                                )
+                        }, placeholder: {
+                            ProgressView()
+                        })
+                        
+                        ButtonView(
+                            title: "remove",
+                            backgroundColor: .blue,
+                            foregroundColor: .white,
+                            cornerRadius: 10,
+                            fontText: 16,
+                            action: {
+                                favoriteViewModel.deleteFav(catsViewModel.cat)
+                            })
+                        .frame(height: 45)
+                        .padding()
+                    }
                 }
             }
             .padding()
@@ -44,6 +59,6 @@ struct FavoritesView: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(favoriteViewModel: FavoriteViewModel())
+        FavoritesView(favoriteViewModel: FavoriteViewModel(), catsViewModel: CatsViewModel())
     }
 }

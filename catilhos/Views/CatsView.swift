@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CatsView: View {
-    @StateObject var catsViewModel = CatsViewModel()
+    @StateObject var catsViewModel: CatsViewModel
     @StateObject var favoriteViewModel: FavoriteViewModel
     
     var body: some View {
@@ -63,6 +63,6 @@ struct CatsView: View {
 
 struct CatsView_Previews: PreviewProvider {
     static var previews: some View {
-        CatsView(favoriteViewModel: FavoriteViewModel())
+        CatsView(catsViewModel: CatsViewModel(), favoriteViewModel: FavoriteViewModel())
     }
 }
