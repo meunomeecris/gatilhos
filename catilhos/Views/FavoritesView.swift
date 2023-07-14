@@ -10,24 +10,34 @@ import SwiftUI
 struct FavoritesView: View {
     @StateObject var favoriteViewModel: FavoriteViewModel
     
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+        GridItem(.flexible(), spacing: nil, alignment: nil)
+    ]
+
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
+            LazyVGrid(columns: columns) {
                 ForEach(favoriteViewModel.favorites, id: \.self) { item in
                     let url = URL(string: item.url)
                     AsyncImage(url: url, content: { returnedImage in
-                        returnedImage
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        Rectangle()
+                            .frame(height: 120)
                             .cornerRadius(12)
-                            .padding(16)
+                            .overlay(
+                                returnedImage
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipped()
+                                
+                            )
                     }, placeholder: {
                         ProgressView()
                     })
-                    .frame(width: 150, height: 100)
-                    .padding()
                 }
             }
+            .padding()
         }
     }
 }
