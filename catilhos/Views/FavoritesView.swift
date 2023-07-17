@@ -38,13 +38,7 @@ struct FavoritesView: View {
                             ProgressView()
                         })
                         
-                        ButtonView(
-                            title: "remove",
-                            backgroundColor: .blue,
-                            foregroundColor: .white,
-                            cornerRadius: 10,
-                            fontText: 16,
-                            action: {
+                        ButtonView(title: "remove", action: {
                                 favoriteViewModel.deleteFav(catsViewModel.cat)
                             })
                         .frame(height: 45)

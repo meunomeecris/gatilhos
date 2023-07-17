@@ -9,10 +9,6 @@ import SwiftUI
 
 struct ButtonView: View {
     let title: String
-    let backgroundColor: Color
-    let foregroundColor: Color
-    let cornerRadius: Double
-    let fontText: CGFloat
     let action: () -> Void
     
     var body: some View {
@@ -20,13 +16,14 @@ struct ButtonView: View {
            action()
         } label: {
             ZStack{
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(backgroundColor)
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(.blue)
                 Text(title)
-                    .foregroundColor(foregroundColor)
-                    .font(.system(size: fontText))
+                    .foregroundColor(.white)
+                    .font(.system(size: 16))
                     .bold()
             }
+            .frame(maxWidth: 120, maxHeight: 45)
         }
 
     }
@@ -34,12 +31,6 @@ struct ButtonView: View {
 
 struct ButtonIconView: View {
     let systemImage: String
-    let font: CGFloat
-    let backgroundColor: Color
-    let foregroundColor: Color
-    let cornerRadius: Double
-    let width: Double
-    let height: Double
     let action: () -> Void
     
     var body: some View {
@@ -47,28 +38,27 @@ struct ButtonIconView: View {
             action()
         }, label: {
             Image(systemName: systemImage)
-               
-                .font(.system(size: font))
-                
+                .font(.system(size: 20))
         })
-        .frame(maxWidth: width, maxHeight: height)
-        .background(backgroundColor)
-        .foregroundColor(foregroundColor)
-        .cornerRadius(cornerRadius)
+        .frame(maxWidth: 80, maxHeight: 45)
+        .background(.red)
+        .foregroundColor(.white)
+        .cornerRadius(12)
     }
 }
 
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(title: "Button", backgroundColor: .blue, foregroundColor: .white, cornerRadius: 15, fontText: 30, action: {
+        ButtonView(title: "Button",
+                   action: {
         })
     }
 }
 
 struct ButtonIconView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonIconView(systemImage: "hear", font: 25, backgroundColor: .red, foregroundColor: .blue, cornerRadius: 10, width: 45, height: 45, action: {
+        ButtonIconView(systemImage: "heart", action: {
             
         })
     }

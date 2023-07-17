@@ -26,29 +26,16 @@ struct CatsView: View {
                     .font(.system(.headline))
                     .foregroundColor(.gray)
             }
-                
             
             Spacer()
-            
+
             HStack(){
-                ButtonView(
-                    title: "MORE",
-                    backgroundColor: .blue,
-                    foregroundColor: .white,
-                    cornerRadius: 10,
-                    fontText: 16,
-                    action: {
-                        catsViewModel.fetchCat()
-                    })
-                .frame(maxWidth: 120, maxHeight: 45)
+                ButtonView(title: "MORE", action: {
+                    catsViewModel.fetchCat()
+                })
                 
                 ButtonIconView(
                     systemImage: favoriteViewModel.isFavorite(catsViewModel.cat) ? "heart.fill" : "heart",
-                    font: 25,
-                    backgroundColor: .red,
-                    foregroundColor: .white,
-                    cornerRadius: 10,
-                    width: 80, height: 45,
                     action: {
                         favoriteViewModel.favoriteCat(catsViewModel.cat)
                     })
@@ -56,7 +43,6 @@ struct CatsView: View {
             .padding()
             .padding(.top, 20)
             .padding(.bottom, 50)
-            
         }
     }
 }
