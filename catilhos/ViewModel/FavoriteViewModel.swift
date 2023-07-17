@@ -18,6 +18,7 @@ class FavoriteViewModel: ObservableObject {
         favorites.append(cat)
     }
     
+    
     func isFavorite(_ cat: CatDataModel?) -> Bool {
         guard let cat = cat else {
             return false
@@ -28,16 +29,15 @@ class FavoriteViewModel: ObservableObject {
         return isFav
     }
     
+        
     func deleteFav(_ cat: CatDataModel?) {
         guard let cat = cat else {
             return
         }
         
-        //delete from favorite's list
         if let index  = favorites.firstIndex(where: {$0 == cat}) {
             favorites.remove(at: index)
         }
-        
     }
     
     
