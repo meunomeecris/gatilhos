@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @StateObject var favoriteViewModel: FavoriteViewModel
-    @StateObject var catsViewModel: CatsViewModel
+    @StateObject var catManager: CatManager
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: nil, alignment: nil),
@@ -20,7 +19,7 @@ struct FavoritesView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(favoriteViewModel.favorites, id: \.self) { item in
+                ForEach(catManager.favorites, id: \.self) { item in
                     let url = URL(string: item.url)
                     VStack {
                         AsyncImage(url: url, content: { returnedImage in
@@ -37,10 +36,7 @@ struct FavoritesView: View {
                         }, placeholder: {
                             ProgressView()
                         })
-                        
-                        ButtonView(title: "remove", action: {
-                                favoriteViewModel.deleteFav(catsViewModel.cat)
-                            })
+                        RemoveButton(catManager: catManager)
                         .frame(height: 45)
                         .padding()
                     }
@@ -53,6 +49,21 @@ struct FavoritesView: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(favoriteViewModel: FavoriteViewModel(), catsViewModel: CatsViewModel())
+        FavoritesView(catManager: CatManager())
+    }
+}
+
+
+struct RemoveButton: View {
+    @StateObject var catManager: CatManager
+
+    var body: some View {
+        Button("Remove", action: {
+            catManager.deleteFavorite(catManager.cat)
+        })
+        .frame(maxWidth: 80, maxHeight: 45)
+        .background(.red)
+        .foregroundColor(.white)
+        .cornerRadius(12)
     }
 }
