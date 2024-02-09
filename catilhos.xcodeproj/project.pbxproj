@@ -7,32 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A0BBE5D2A5D7543003A6708 /* CatDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE5C2A5D7543003A6708 /* CatDataModel.swift */; };
+		8A0BBE5D2A5D7543003A6708 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE5C2A5D7543003A6708 /* Cat.swift */; };
 		8A0BBE5F2A5D7601003A6708 /* CatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE5E2A5D7601003A6708 /* CatsView.swift */; };
 		8A0BBE612A5D7615003A6708 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE602A5D7615003A6708 /* FavoritesView.swift */; };
-		8A0BBE652A5D77EB003A6708 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE642A5D77EB003A6708 /* ButtonView.swift */; };
-		8A0BBE682A5D85E6003A6708 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE672A5D85E6003A6708 /* HeaderView.swift */; };
+		8A6160382B76818200BB98F4 /* CatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6160372B76818200BB98F4 /* CatManager.swift */; };
+		8A61603A2B76836100BB98F4 /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6160392B76836100BB98F4 /* CatsViewModel.swift */; };
 		8A8EFE2E2A45B29E00282186 /* CatilhosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EFE2D2A45B29E00282186 /* CatilhosApp.swift */; };
 		8A8EFE302A45B29E00282186 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EFE2F2A45B29E00282186 /* MainView.swift */; };
 		8A8EFE322A45B2A000282186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EFE312A45B2A000282186 /* Assets.xcassets */; };
 		8A8EFE352A45B2A000282186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EFE342A45B2A000282186 /* Preview Assets.xcassets */; };
-		8AF5561D2A5EAE3700D0D315 /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5561C2A5EAE3700D0D315 /* CatsViewModel.swift */; };
-		8AF5561F2A5EB6B700D0D315 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5561E2A5EB6B700D0D315 /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A0BBE5C2A5D7543003A6708 /* CatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDataModel.swift; sourceTree = "<group>"; };
+		8A0BBE5C2A5D7543003A6708 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		8A0BBE5E2A5D7601003A6708 /* CatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsView.swift; sourceTree = "<group>"; };
 		8A0BBE602A5D7615003A6708 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		8A0BBE642A5D77EB003A6708 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		8A0BBE672A5D85E6003A6708 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		8A6160372B76818200BB98F4 /* CatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatManager.swift; sourceTree = "<group>"; };
+		8A6160392B76836100BB98F4 /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
 		8A8EFE2A2A45B29E00282186 /* catilhos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catilhos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8EFE2D2A45B29E00282186 /* CatilhosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatilhosApp.swift; sourceTree = "<group>"; };
 		8A8EFE2F2A45B29E00282186 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8A8EFE312A45B2A000282186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A8EFE342A45B2A000282186 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8AF5561C2A5EAE3700D0D315 /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
-		8AF5561E2A5EB6B700D0D315 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,33 +42,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A0BBE622A5D7671003A6708 /* Views */ = {
+		8A0BBE622A5D7671003A6708 /* Cats */ = {
 			isa = PBXGroup;
 			children = (
-				8A8EFE2F2A45B29E00282186 /* MainView.swift */,
 				8A0BBE5E2A5D7601003A6708 /* CatsView.swift */,
-				8A0BBE602A5D7615003A6708 /* FavoritesView.swift */,
-				8A0BBE672A5D85E6003A6708 /* HeaderView.swift */,
-				8A0BBE642A5D77EB003A6708 /* ButtonView.swift */,
+				8A6160392B76836100BB98F4 /* CatsViewModel.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8A0BBE632A5D7685003A6708 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8AF5561C2A5EAE3700D0D315 /* CatsViewModel.swift */,
-				8AF5561E2A5EB6B700D0D315 /* FavoriteViewModel.swift */,
-			);
-			path = ViewModel;
+			path = Cats;
 			sourceTree = "<group>";
 		};
 		8A0BBE662A5D781E003A6708 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A0BBE5C2A5D7543003A6708 /* CatDataModel.swift */,
+				8A0BBE5C2A5D7543003A6708 /* Cat.swift */,
+				8A6160372B76818200BB98F4 /* CatManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8A6160362B767C9E00BB98F4 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				8A0BBE602A5D7615003A6708 /* FavoritesView.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		8A8EFE212A45B29E00282186 = {
@@ -95,10 +88,11 @@
 			isa = PBXGroup;
 			children = (
 				8A8EFE2D2A45B29E00282186 /* CatilhosApp.swift */,
+				8A8EFE2F2A45B29E00282186 /* MainView.swift */,
 				8A8EFE312A45B2A000282186 /* Assets.xcassets */,
 				8A0BBE662A5D781E003A6708 /* Model */,
-				8A0BBE632A5D7685003A6708 /* ViewModel */,
-				8A0BBE622A5D7671003A6708 /* Views */,
+				8A6160362B767C9E00BB98F4 /* Favorites */,
+				8A0BBE622A5D7671003A6708 /* Cats */,
 				8A8EFE332A45B2A000282186 /* Preview Content */,
 			);
 			path = catilhos;
@@ -140,7 +134,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					8A8EFE292A45B29E00282186 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -182,15 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF5561F2A5EB6B700D0D315 /* FavoriteViewModel.swift in Sources */,
 				8A8EFE302A45B29E00282186 /* MainView.swift in Sources */,
 				8A0BBE612A5D7615003A6708 /* FavoritesView.swift in Sources */,
-				8A0BBE5D2A5D7543003A6708 /* CatDataModel.swift in Sources */,
+				8A0BBE5D2A5D7543003A6708 /* Cat.swift in Sources */,
+				8A61603A2B76836100BB98F4 /* CatsViewModel.swift in Sources */,
 				8A0BBE5F2A5D7601003A6708 /* CatsView.swift in Sources */,
 				8A8EFE2E2A45B29E00282186 /* CatilhosApp.swift in Sources */,
-				8AF5561D2A5EAE3700D0D315 /* CatsViewModel.swift in Sources */,
-				8A0BBE652A5D77EB003A6708 /* ButtonView.swift in Sources */,
-				8A0BBE682A5D85E6003A6708 /* HeaderView.swift in Sources */,
+				8A6160382B76818200BB98F4 /* CatManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +225,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -293,6 +286,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
