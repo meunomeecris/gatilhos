@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var favoriteViewModel = FavoriteViewModel()
+    var catManager = CatManager()
     
     var body: some View {
         VStack {
-            HeaderView(text: "CATILHOS", foregroundColor: .blue)
-                .padding(.top, 30)
-            
             TabView {
-                CatsView(catsViewModel: CatsViewModel(), favoriteViewModel: favoriteViewModel)
+                CatsView(viewModel: CatsViewModel(catManager: catManager), catManager: catManager)
                     .tabItem {
                         Label("Cats", systemImage: "house")
                     }
-                FavoritesView(favoriteViewModel: favoriteViewModel, catsViewModel: CatsViewModel())
+                FavoritesView(catManager: catManager)
                     .tabItem {
                         Label("Favorites", systemImage: "heart")
                     }

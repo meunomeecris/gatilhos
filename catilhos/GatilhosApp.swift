@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct CatilhosApp: App {
+struct GatilhosApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
