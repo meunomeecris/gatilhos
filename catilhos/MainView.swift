@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var catManager = CatManager()
+    var catManager = CatManager()
     
     var body: some View {
         VStack {
             TabView {
-                CatsView(viewModel: CatsViewModel(catManager: catManager))
+                CatsView(viewModel: CatsViewModel(catManager: catManager), catManager: catManager)
                     .tabItem {
                         Label("Cats", systemImage: "house")
                     }

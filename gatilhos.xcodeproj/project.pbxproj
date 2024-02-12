@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A00A4F82B7A265E0035AD83 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A00A4F72B7A265E0035AD83 /* Button.swift */; };
 		8A0BBE5D2A5D7543003A6708 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE5C2A5D7543003A6708 /* Cat.swift */; };
 		8A0BBE5F2A5D7601003A6708 /* CatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE5E2A5D7601003A6708 /* CatsView.swift */; };
 		8A0BBE612A5D7615003A6708 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BBE602A5D7615003A6708 /* FavoritesView.swift */; };
+		8A1B3CE72B7A2BA100AB78EC /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B3CE62B7A2BA100AB78EC /* TextField.swift */; };
 		8A6160382B76818200BB98F4 /* CatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6160372B76818200BB98F4 /* CatManager.swift */; };
 		8A61603A2B76836100BB98F4 /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6160392B76836100BB98F4 /* CatsViewModel.swift */; };
-		8A8EFE2E2A45B29E00282186 /* CatilhosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EFE2D2A45B29E00282186 /* CatilhosApp.swift */; };
+		8A8EFE2E2A45B29E00282186 /* GatilhosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EFE2D2A45B29E00282186 /* GatilhosApp.swift */; };
 		8A8EFE302A45B29E00282186 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EFE2F2A45B29E00282186 /* MainView.swift */; };
 		8A8EFE322A45B2A000282186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EFE312A45B2A000282186 /* Assets.xcassets */; };
 		8A8EFE352A45B2A000282186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EFE342A45B2A000282186 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A00A4F72B7A265E0035AD83 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		8A0BBE5C2A5D7543003A6708 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		8A0BBE5E2A5D7601003A6708 /* CatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsView.swift; sourceTree = "<group>"; };
 		8A0BBE602A5D7615003A6708 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		8A1B3CE62B7A2BA100AB78EC /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		8A6160372B76818200BB98F4 /* CatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatManager.swift; sourceTree = "<group>"; };
 		8A6160392B76836100BB98F4 /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
-		8A8EFE2A2A45B29E00282186 /* catilhos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catilhos.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A8EFE2D2A45B29E00282186 /* CatilhosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatilhosApp.swift; sourceTree = "<group>"; };
+		8A8EFE2A2A45B29E00282186 /* gatilhos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatilhos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A8EFE2D2A45B29E00282186 /* GatilhosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatilhosApp.swift; sourceTree = "<group>"; };
 		8A8EFE2F2A45B29E00282186 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8A8EFE312A45B2A000282186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A8EFE342A45B2A000282186 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -42,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A00A4F62B7A26360035AD83 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8A00A4F72B7A265E0035AD83 /* Button.swift */,
+				8A1B3CE62B7A2BA100AB78EC /* TextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8A0BBE622A5D7671003A6708 /* Cats */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +92,7 @@
 		8A8EFE2B2A45B29E00282186 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A8EFE2A2A45B29E00282186 /* catilhos.app */,
+				8A8EFE2A2A45B29E00282186 /* gatilhos.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,12 +100,13 @@
 		8A8EFE2C2A45B29E00282186 /* catilhos */ = {
 			isa = PBXGroup;
 			children = (
-				8A8EFE2D2A45B29E00282186 /* CatilhosApp.swift */,
+				8A8EFE2D2A45B29E00282186 /* GatilhosApp.swift */,
 				8A8EFE2F2A45B29E00282186 /* MainView.swift */,
 				8A8EFE312A45B2A000282186 /* Assets.xcassets */,
-				8A0BBE662A5D781E003A6708 /* Model */,
-				8A6160362B767C9E00BB98F4 /* Favorites */,
 				8A0BBE622A5D7671003A6708 /* Cats */,
+				8A6160362B767C9E00BB98F4 /* Favorites */,
+				8A0BBE662A5D781E003A6708 /* Model */,
+				8A00A4F62B7A26360035AD83 /* Components */,
 				8A8EFE332A45B2A000282186 /* Preview Content */,
 			);
 			path = catilhos;
@@ -109,9 +123,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A8EFE292A45B29E00282186 /* catilhos */ = {
+		8A8EFE292A45B29E00282186 /* gatilhos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A8EFE382A45B2A000282186 /* Build configuration list for PBXNativeTarget "catilhos" */;
+			buildConfigurationList = 8A8EFE382A45B2A000282186 /* Build configuration list for PBXNativeTarget "gatilhos" */;
 			buildPhases = (
 				8A8EFE262A45B29E00282186 /* Sources */,
 				8A8EFE272A45B29E00282186 /* Frameworks */,
@@ -121,9 +135,9 @@
 			);
 			dependencies = (
 			);
-			name = catilhos;
+			name = gatilhos;
 			productName = catilhos;
-			productReference = 8A8EFE2A2A45B29E00282186 /* catilhos.app */;
+			productReference = 8A8EFE2A2A45B29E00282186 /* gatilhos.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A8EFE252A45B29E00282186 /* Build configuration list for PBXProject "catilhos" */;
+			buildConfigurationList = 8A8EFE252A45B29E00282186 /* Build configuration list for PBXProject "gatilhos" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -154,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A8EFE292A45B29E00282186 /* catilhos */,
+				8A8EFE292A45B29E00282186 /* gatilhos */,
 			);
 		};
 /* End PBXProject section */
@@ -181,8 +195,10 @@
 				8A0BBE5D2A5D7543003A6708 /* Cat.swift in Sources */,
 				8A61603A2B76836100BB98F4 /* CatsViewModel.swift in Sources */,
 				8A0BBE5F2A5D7601003A6708 /* CatsView.swift in Sources */,
-				8A8EFE2E2A45B29E00282186 /* CatilhosApp.swift in Sources */,
+				8A8EFE2E2A45B29E00282186 /* GatilhosApp.swift in Sources */,
+				8A1B3CE72B7A2BA100AB78EC /* TextField.swift in Sources */,
 				8A6160382B76818200BB98F4 /* CatManager.swift in Sources */,
+				8A00A4F82B7A265E0035AD83 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -295,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -366,7 +382,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A8EFE252A45B29E00282186 /* Build configuration list for PBXProject "catilhos" */ = {
+		8A8EFE252A45B29E00282186 /* Build configuration list for PBXProject "gatilhos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A8EFE362A45B2A000282186 /* Debug */,
@@ -375,7 +391,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A8EFE382A45B2A000282186 /* Build configuration list for PBXNativeTarget "catilhos" */ = {
+		8A8EFE382A45B2A000282186 /* Build configuration list for PBXNativeTarget "gatilhos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A8EFE392A45B2A000282186 /* Debug */,

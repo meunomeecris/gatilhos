@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A8EFE292A45B29E00282186"
-               BuildableName = "catilhos.app"
-               BlueprintName = "catilhos"
-               ReferencedContainer = "container:catilhos.xcodeproj">
+               BuildableName = "gatilhos.app"
+               BlueprintName = "gatilhos"
+               ReferencedContainer = "container:gatilhos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A8EFE292A45B29E00282186"
-            BuildableName = "catilhos.app"
-            BlueprintName = "catilhos"
-            ReferencedContainer = "container:catilhos.xcodeproj">
+            BuildableName = "gatilhos.app"
+            BlueprintName = "gatilhos"
+            ReferencedContainer = "container:gatilhos.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A8EFE292A45B29E00282186"
-            BuildableName = "catilhos.app"
-            BlueprintName = "catilhos"
-            ReferencedContainer = "container:catilhos.xcodeproj">
+            BuildableName = "gatilhos.app"
+            BlueprintName = "gatilhos"
+            ReferencedContainer = "container:gatilhos.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

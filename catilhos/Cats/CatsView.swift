@@ -8,76 +8,82 @@
 import SwiftUI
 
 struct CatsView: View {
-    @StateObject var viewModel: CatsViewModel
+    var viewModel: CatsViewModel
+    var catManager: CatManager
 
     var body: some View {
-        VStack {
-            HeaderView()
-                .padding(.top, 30)
-            Spacer()
-            if let urlString = viewModel.catManager.cat?.url,
-               let url = URL(string: urlString),
-               let imageData = try? Data(contentsOf: url),
-               let image = UIImage(data: imageData) {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else {
-                ProgressView()
-                    .font(.system(.headline))
-                    .foregroundColor(.gray)
+        ZStack {
+            Color.black.ignoresSafeArea()
+            VStack {
+                HeaderView()
+                    .padding(.top, 30)
+                Spacer()
+                VStack {
+                    if let image = viewModel.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } else {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                    }
+                }
+                Spacer()
+                TitleCatsInput(viewModel: viewModel)
+                HStack(){
+                    MoreButton(catManager: viewModel.catManager, viewModel: viewModel)
+                    FavoriteButton(catManager: viewModel.catManager, viewModel: viewModel)
+                }
+                .padding()
+                .onAppear {
+                    Task {
+                        await catManager.fetchCat()
+                        viewModel.loadImage()
+                    }
+                }
             }
-            Spacer()
-            TitleCatsInput(viewModel: viewModel)
-            HStack(){
-                MoreButton(catManager: viewModel.catManager)
-                FavoriteButton(catManager: viewModel.catManager)
-            }
-            .padding()
-            .padding(.top, 20)
-            .padding(.bottom, 50)
         }
     }
 }
 
 struct CatsView_Previews: PreviewProvider {
     static var previews: some View {
-        CatsView(viewModel: CatsViewModel(catManager: CatManager(), titleCatsInput: ""))
+        CatsView(viewModel: CatsViewModel(catManager: CatManager(), titleCatsInput: ""), catManager: CatManager())
     }
 }
 
 
 struct HeaderView: View {
     var body: some View {
-        Text("Catilhos")
-            .font(.title)
-            .fontWeight(.bold)
-            .foregroundColor(.primary)
+        VStack {
+            Text("Gatilhos")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            Text("My little, beautiful, cute cats")
+                .font(.subheadline)
+                .foregroundColor(.white .opacity(0.8))
+        }
     }
 }
 
 struct MoreButton: View {
-    @StateObject var catManager: CatManager
-    var body: some View {
-        Button {
-            catManager.fetchCat()
-        } label: {
-            ZStack{
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(.blue)
-                Text("More")
-                    .foregroundColor(.white)
-                    .font(.system(size: 16))
-                    .bold()
-            }
-            .frame(maxWidth: 120, maxHeight: 45)
-        }
+    var catManager: CatManager
+    var viewModel: CatsViewModel
 
+    var body: some View {
+        TextButton(title: "More cute cats") {
+            Task {
+                await catManager.fetchCat()
+                viewModel.loadImage()
+            }
+        }
     }
 }
 
 struct FavoriteButton: View {
-    @StateObject var catManager: CatManager
+    var catManager: CatManager
+    var viewModel: CatsViewModel
 
     var body: some View {
         Button(action: {
@@ -91,8 +97,9 @@ struct FavoriteButton: View {
                     .font(.system(size: 20))
             }
         })
-        .frame(maxWidth: 80, maxHeight: 45)
-        .background(.red)
+        .frame(maxWidth: viewModel.maxWidth)
+        .frame(height: viewModel.heigth)
+        .background(.green)
         .foregroundColor(.white)
         .cornerRadius(12)
     }
@@ -100,20 +107,29 @@ struct FavoriteButton: View {
 
 
 struct TitleCatsInput: View {
-    @StateObject var viewModel: CatsViewModel
+    @Bindable var viewModel: CatsViewModel
 
     var body: some View {
-        VStack {
+        VStack(alignment:.leading) {
             Text("Give me a title")
                 .bold()
-            TextField("My cat...", text: $viewModel.titleCatsInput)
-                .bold()
-                .padding()
+                .font(.title3)
                 .foregroundStyle(.white)
-                .frame(height: 50)
-                .frame(maxWidth: .infinity)
-                .background(.indigo)
+            HStack {
+                TextFieldComponent(
+                    placeholder: "I'm crazy, but I'm freee...",
+                    text: $viewModel.titleCatsInput
+                )
+                if !viewModel.titleCatsInput.isEmpty {
+                    IconButton(icon: "checkmark.circle") {
+
+                    }
+                }
+            }
         }
-        .padding()
+        .padding(20)
     }
 }
+
+
+

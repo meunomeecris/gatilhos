@@ -7,31 +7,33 @@
 
 import Foundation
 
-class CatManager: ObservableObject {
-    @Published var cat: Cat? = nil
-    @Published var favorites: [Cat] = []
-    @Published var titleCat: String = ""
+@Observable class CatManager {
+    var cat: Cat?
+    var favorites: [Cat]
+    var titleCat: String
 
-    func fetchCat() {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?api_key=live_zDdhkI9KBZ3NubVIDvk3sbp62qME5SGa1nq7HvOZJI749ghjPr4jVOlu0MsWqSnj") else {
+    public init(cat: Cat? = nil, favorites: [Cat] = [], titleCat: String = "") {
+        self.cat = cat
+        self.favorites = favorites
+        self.titleCat = titleCat
+    }
+
+    func fetchCat() async {
+        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?api_key=live_3fkeBqVXOWac6Gi7JGCbYlGV3v6ac3YQyCnvpKhSWecNSVdh3Tkrltqn2XgMRCjl") else {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-
-            if let data = data,
-               let catData = try? JSONDecoder().decode([Cat].self, from: data),
-               let cat = catData.first {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let catData = try JSONDecoder().decode([Cat].self, from: data)
+            if let cat = catData.first {
                 DispatchQueue.main.async {
                     self.cat = cat
                 }
             }
+        } catch {
+            print("Error: \(error.localizedDescription)")
         }
-        .resume()
     }
 
     func favoriteCat(_ cat: Cat?) {

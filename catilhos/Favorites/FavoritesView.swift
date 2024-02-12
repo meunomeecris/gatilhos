@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @StateObject var catManager: CatManager
+    var catManager: CatManager
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: nil, alignment: nil),
@@ -17,6 +17,8 @@ struct FavoritesView: View {
     ]
 
     var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()
         ScrollView {
             LazyVGrid(columns: columns) {
                 ForEach(catManager.favorites, id: \.self) { item in
@@ -31,18 +33,18 @@ struct FavoritesView: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .clipped()
-                                    
+
                                 )
                         }, placeholder: {
                             ProgressView()
                         })
                         RemoveButton(catManager: catManager)
-                        .frame(height: 45)
-                        .padding()
+                            .frame(height: 45)
+                            .padding()
                     }
                 }
             }
-            .padding()
+        }
         }
     }
 }
@@ -55,7 +57,7 @@ struct FavoritesView_Previews: PreviewProvider {
 
 
 struct RemoveButton: View {
-    @StateObject var catManager: CatManager
+    var catManager: CatManager
 
     var body: some View {
         Button("Remove", action: {
