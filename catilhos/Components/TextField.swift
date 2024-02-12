@@ -13,7 +13,7 @@ struct TextFieldComponent: View {
 
     var body: some View {
        TextField(placeholder, text: $text)
-            .frame(height: 40)
+            .frame(height: 50)
             .frame(maxWidth: .infinity)
             .multilineTextAlignment(.leading)
             .padding([.leading, .trailing], 16)

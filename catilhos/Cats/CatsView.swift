@@ -18,29 +18,16 @@ struct CatsView: View {
                 HeaderView()
                     .padding(.top, 30)
                 Spacer()
-                VStack {
-                    if let image = viewModel.image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    } else {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle())
-                    }
-                }
+                LoadImage(viewModel: viewModel)
                 Spacer()
-                TitleCatsInput(viewModel: viewModel)
-                HStack(){
-                    MoreButton(catManager: viewModel.catManager, viewModel: viewModel)
-                    FavoriteButton(catManager: viewModel.catManager, viewModel: viewModel)
-                }
-                .padding()
-                .onAppear {
-                    Task {
-                        await catManager.fetchCat()
-                        viewModel.loadImage()
-                    }
-                }
+                MoreButton(catManager: viewModel.catManager, viewModel: viewModel)
+                    .frame(height: 50)
+            }
+        }
+        .onAppear {
+            Task {
+                await catManager.fetchCat()
+                viewModel.loadImage()
             }
         }
     }
@@ -55,15 +42,32 @@ struct CatsView_Previews: PreviewProvider {
 
 struct HeaderView: View {
     var body: some View {
-        VStack {
-            Text("Gatilhos")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-            Text("My little, beautiful, cute cats")
-                .font(.subheadline)
-                .foregroundColor(.white .opacity(0.8))
+        HStack {
+            Image("catLogo")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .background(.white)
+                .frame(width: 60, height: 60)
+                .cornerRadius(60/2)
+                .overlay {
+                    Circle()
+                        .stroke(.indigo, lineWidth: 3)
+                }
+            VStack(alignment: .leading) {
+                Text("GATILHOS")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.white)
+                    .tracking(2)
+                Text("fofinhos")
+                    .font(.title3)
+                    .foregroundColor(.white)
+                    .tracking(7)
+            }
+            Spacer()
         }
+        .padding(.leading, 16)
+        .padding(.bottom, 12)
     }
 }
 
@@ -72,12 +76,23 @@ struct MoreButton: View {
     var viewModel: CatsViewModel
 
     var body: some View {
-        TextButton(title: "More cute cats") {
-            Task {
-                await catManager.fetchCat()
-                viewModel.loadImage()
-            }
+        VStack {
+            Button(action: {
+                Task {
+                    await catManager.fetchCat()
+                    viewModel.loadImage()
+                }
+            }, label: {
+                Text("More cute cats")
+                    .foregroundColor(.white)
+                    .font(.system(size: 16))
+                    .bold()
+            })
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.indigo)
+            .cornerRadius(12)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 
@@ -92,16 +107,13 @@ struct FavoriteButton: View {
             if catManager.isFavorite(catManager.cat) {
                 Image(systemName: "heart.fill")
                     .font(.system(size: 20))
+                    .foregroundStyle(.green)
             } else {
                 Image(systemName: "heart")
                     .font(.system(size: 20))
             }
         })
-        .frame(maxWidth: viewModel.maxWidth)
-        .frame(height: viewModel.heigth)
-        .background(.green)
         .foregroundColor(.white)
-        .cornerRadius(12)
     }
 }
 
@@ -110,26 +122,54 @@ struct TitleCatsInput: View {
     @Bindable var viewModel: CatsViewModel
 
     var body: some View {
-        VStack(alignment:.leading) {
-            Text("Give me a title")
-                .bold()
-                .font(.title3)
-                .foregroundStyle(.white)
-            HStack {
-                TextFieldComponent(
-                    placeholder: "I'm crazy, but I'm freee...",
-                    text: $viewModel.titleCatsInput
-                )
-                if !viewModel.titleCatsInput.isEmpty {
-                    IconButton(icon: "checkmark.circle") {
+        HStack {
+            TextFieldComponent(
+                placeholder: "Give me a title",
+                text: $viewModel.titleCatsInput
+            )
+            if !viewModel.titleCatsInput.isEmpty {
+                Button(action: {
 
-                    }
-                }
+                }, label: {
+                    Text("Save")
+                        .padding(.trailing, 16)
+                        .foregroundStyle(.green)
+                        .bold()
+                })
+                .frame(height: 50)
             }
         }
-        .padding(20)
     }
 }
 
+struct LoadImage: View {
+    var viewModel: CatsViewModel
 
-
+    var body: some View {
+        VStack {
+            if let image = viewModel.image {
+                ZStack(alignment: .topTrailing) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    FavoriteButton(catManager: viewModel.catManager, viewModel: viewModel)
+                        .padding([.top, .trailing], 8)
+                }
+                HStack(alignment: .bottom)  {
+                    TitleCatsInput(viewModel: viewModel)
+                }
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+            }
+        }
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(.white, lineWidth: 3.0)
+        }
+        .padding([.trailing, .leading],16)
+    }
+}
