@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CatsView: View {
-    var viewModel: CatsViewModel
+    @Binding var viewModel: CatsViewModel
     var catManager: CatManager
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
             VStack {
-                HeaderView()
+                HeaderView(viewModel: $viewModel)
                     .padding(.top, 30)
                 Spacer()
                 LoadImage(viewModel: viewModel)
@@ -30,17 +31,24 @@ struct CatsView: View {
                 viewModel.loadImage()
             }
         }
+        .sheet(isPresented: $viewModel.isPresented, content: {
+            NavigationStack {
+                FavoriteListView(catManager: catManager)
+            }
+        })
     }
 }
 
 struct CatsView_Previews: PreviewProvider {
     static var previews: some View {
-        CatsView(viewModel: CatsViewModel(catManager: CatManager(), titleCatsInput: ""), catManager: CatManager())
+        CatsView(viewModel: .constant(CatsViewModel(catManager: CatManager())), catManager: CatManager())
     }
 }
 
 
 struct HeaderView: View {
+    @Binding var viewModel: CatsViewModel
+
     var body: some View {
         HStack {
             Image("catLogo")
@@ -65,6 +73,10 @@ struct HeaderView: View {
                     .tracking(7)
             }
             Spacer()
+            Button("Fav") {
+                viewModel.isPresented = true
+            }
+            .padding(.trailing, 16)
         }
         .padding(.leading, 16)
         .padding(.bottom, 12)
@@ -119,6 +131,7 @@ struct FavoriteButton: View {
 
 
 struct TitleCatsInput: View {
+    @Environment(\.modelContext) private var context
     @Bindable var viewModel: CatsViewModel
 
     var body: some View {
@@ -129,7 +142,10 @@ struct TitleCatsInput: View {
             )
             if !viewModel.titleCatsInput.isEmpty {
                 Button(action: {
-
+                    guard let urlString = viewModel.catManager.cat?.url else { return }
+                    let storeTitleCat = StoreCat(title: viewModel.titleCatsInput, url: urlString)
+                    context.insert(storeTitleCat)
+                    viewModel.titleCatsInput = ""
                 }, label: {
                     Text("Save")
                         .padding(.trailing, 16)
@@ -153,7 +169,7 @@ struct LoadImage: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                    FavoriteButton(catManager: viewModel.catManager, viewModel: viewModel)
+//                    FavoriteButton(catManager: viewModel.catManager, viewModel: viewModel)
                         .padding([.top, .trailing], 8)
                 }
                 HStack(alignment: .bottom)  {

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 @Observable class CatsViewModel {
     var catManager: CatManager
@@ -14,7 +15,8 @@ import SwiftUI
     var image: UIImage?
     let maxWidth: CGFloat = 80
     let heigth: CGFloat = 40
-    
+    var isPresented: Bool = false
+
     init(catManager: CatManager, titleCatsInput: String = "", image: UIImage? = nil) {
         self.catManager = catManager
         self.titleCatsInput = titleCatsInput

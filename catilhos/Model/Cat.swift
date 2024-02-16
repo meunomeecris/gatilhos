@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 
 struct Cat: Codable, Equatable, Hashable {
@@ -13,4 +14,15 @@ struct Cat: Codable, Equatable, Hashable {
     let url: String
     let width: Int
     let height: Int
+}
+
+@Model
+class StoreCat {
+    let title: String
+    let url: String
+
+    init(title: String, url: String) {
+        self.title = title
+        self.url = url
+    }
 }

@@ -18,6 +18,7 @@
 		8A8EFE302A45B29E00282186 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EFE2F2A45B29E00282186 /* MainView.swift */; };
 		8A8EFE322A45B2A000282186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EFE312A45B2A000282186 /* Assets.xcassets */; };
 		8A8EFE352A45B2A000282186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EFE342A45B2A000282186 /* Preview Assets.xcassets */; };
+		8AC503D72B7F7C9A00A79EFD /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC503D62B7F7C9A00A79EFD /* FavoriteListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8A8EFE2F2A45B29E00282186 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8A8EFE312A45B2A000282186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A8EFE342A45B2A000282186 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8AC503D62B7F7C9A00A79EFD /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8A0BBE602A5D7615003A6708 /* FavoritesView.swift */,
+				8AC503D62B7F7C9A00A79EFD /* FavoriteListView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				8A61603A2B76836100BB98F4 /* CatsViewModel.swift in Sources */,
 				8A0BBE5F2A5D7601003A6708 /* CatsView.swift in Sources */,
 				8A8EFE2E2A45B29E00282186 /* GatilhosApp.swift in Sources */,
+				8AC503D72B7F7C9A00A79EFD /* FavoriteListView.swift in Sources */,
 				8A1B3CE72B7A2BA100AB78EC /* TextField.swift in Sources */,
 				8A6160382B76818200BB98F4 /* CatManager.swift in Sources */,
 				8A00A4F82B7A265E0035AD83 /* Button.swift in Sources */,
