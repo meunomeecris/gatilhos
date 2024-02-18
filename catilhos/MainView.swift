@@ -12,7 +12,7 @@ struct MainView: View {
 
     var body: some View {
         VStack {
-            CatsView(viewModel: CatsViewModel(catManager: catManager), catManager: catManager)
+            CatView(viewModel: .constant(CatViewModel(catManager: catManager)))
         }
     }
 }
