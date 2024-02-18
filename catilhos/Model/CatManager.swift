@@ -3,19 +3,14 @@
 //  catilhos
 //
 //  Created by Cris Messias on 09/02/24.
-//https://thecatapi.com
 
 import Foundation
 
 @Observable class CatManager {
     var cat: Cat?
-    var favorites: [Cat]
-    var titleCat: String
 
-    public init(cat: Cat? = nil, favorites: [Cat] = [], titleCat: String = "") {
+    public init(cat: Cat? = nil) {
         self.cat = cat
-        self.favorites = favorites
-        self.titleCat = titleCat
     }
 
     func fetchCat() async {
@@ -35,30 +30,5 @@ import Foundation
             print("Error: \(error.localizedDescription)")
         }
     }
-
-    func favoriteCat(_ cat: Cat?) {
-        guard let cat = cat else {
-            return
-        }
-        favorites.append(cat)
-    }
-
-
-    func isFavorite(_ cat: Cat?) -> Bool {
-        guard let cat = cat else {
-            return false
-        }
-        let isFav = favorites.contains(cat)
-        return isFav
-    }
-
-
-    func deleteFavorite(_ cat: Cat?) {
-        guard let cat = cat else {
-            return
-        }
-        if let index = favorites.firstIndex(where: {$0 == cat}) {
-            favorites.remove(at: index)
-        }
-    }
 }
+

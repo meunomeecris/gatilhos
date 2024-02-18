@@ -9,11 +9,8 @@ import Foundation
 import SwiftData
 
 
-struct Cat: Codable, Equatable, Hashable {
-    let id: String
+struct Cat: Codable, Equatable {
     let url: String
-    let width: Int
-    let height: Int
 }
 
 @Model
