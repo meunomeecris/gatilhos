@@ -10,52 +10,62 @@ import SwiftData
 
 struct CatSavedView: View {
     @Environment(\.modelContext) private var context
-    @Query private var storeCat: [StoreCat]
+    @Query private var storedCat: [StoreCat]
     var viewModel: CatSavedViewModel
 
     var body: some View {
-        NavigationStack{
-            if storeCat.isEmpty {
+        NavigationStack {
+            if storedCat.isEmpty {
                 EmptyStateView()
-            }
-            List {
-                ForEach (storeCat) { cat in
-                    let url = URL(string: cat.url)
-                    VStack {
-                        HStack {
-                            AsyncImage(url: url, content: { returnedImage in
-                                Rectangle()
-                                    .frame(height: 120)
-                                    .cornerRadius(12)
-                                    .overlay(
-                                        returnedImage
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .clipped()
-
-                                    )
-                            }, placeholder: {
-                                ProgressView()
-                            })
-                            Text(cat.title)
+                    .toolbar {
+                        ToolbarItem {
+                            Button("Close") {
+                                viewModel.closeButtonTapped()
+                            }
+                        }
+                    }
+                    .navigationTitle("GATILHOS")
+                    .navigationBarTitleDisplayMode(.inline)
+            } else {
+                List {
+                    Section {
+                        ForEach (storedCat) { cat in
+                            let url = URL(string: cat.url)
+                            HStack {
+                                AsyncImage(url: url, content: { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(10)
+                                }, placeholder: {
+                                    ProgressView()
+                                })
+                                Text(cat.title)
+                                    .font(.body)
+                            }
+                        }
+                        .onDelete { indexes in
+                            for index in indexes {
+                                context.delete(storedCat[index])
+                            }
+                        }
+                    } header: {
+                        Text("MY CATS")
+                    } footer: {
+                        Text("All images that you gaved a title.")
+                    }
+                }
+                .toolbar {
+                    ToolbarItem {
+                        Button("Close") {
+                            viewModel.closeButtonTapped()
                         }
                     }
                 }
-                .onDelete { indexes in
-                    for index in indexes {
-                        context.delete(storeCat[index])
-                    }
-                }
+                .navigationTitle("GATILHOS")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbar {
-                ToolbarItem {
-                    Button("Close") {
-                        viewModel.closeButtonTapped()
-                    }
-                }
-            }
-            .navigationTitle("My cats")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -66,16 +76,16 @@ struct CatSavedView: View {
 
 struct EmptyStateView: View {
     var body: some View {
-        NavigationStack{
-            VStack {
-                Image("womanImage")
-                    .resizable()
-                    .frame(width: 200, height: 200)
-                    .clipShape(Circle())
-                Text("No cats found!")
-                    .font(.title2)
-            }
-            .frame(width: 300, height: 300)
+        VStack {
+            Image("womanImage")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .clipShape(Circle())
+            Text("No cats found!")
+                .font(.title)
+            Text("Add some titles")
+                .foregroundStyle(.gray)
         }
+        .frame(width: 300, height: 300)
     }
 }

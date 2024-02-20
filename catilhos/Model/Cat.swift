@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-
 struct Cat: Codable, Equatable {
     let url: String
 }
@@ -23,3 +22,4 @@ class StoreCat {
         self.url = url
     }
 }
+
