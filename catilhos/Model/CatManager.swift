@@ -6,7 +6,8 @@
 
 import Foundation
 
-@Observable class CatManager {
+@Observable
+class CatManager {
     var cat: Cat?
 
     public init(cat: Cat? = nil) {

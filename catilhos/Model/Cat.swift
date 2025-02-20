@@ -15,8 +15,8 @@ struct Cat: Codable, Equatable {
 
 @Model
 class StoreCat {
-    let title: String
-    let url: String
+    var title: String
+    var url: String
 
     init(title: String, url: String) {
         self.title = title
