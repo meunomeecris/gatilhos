@@ -2,6 +2,15 @@
 <p>My Progress as an iOS Developer Swift | SwiftUI </p>
 
 Architecture: MVVM <br> Used a free REST API <br> Displayed images on the screen <br> Added comments and saved favorites using SwiftData.
+__________________________________________
+
+<p>This repository is part of a series for a personal iOS development study project. This is the first version of the app. To track the progress and future updates, please visit the following link:
+Catto: Procrastination Time -> (https://github.com/meunomeecris/catto)</p>
+
+Feedback and contributions are always welcome! 
+    
+
+
 
 ## Screenshots  
 <p align="center">
@@ -10,10 +19,3 @@ Architecture: MVVM <br> Used a free REST API <br> Displayed images on the screen
     <img src="https://github.com/user-attachments/assets/bfaf4d7d-ecb0-4c32-90de-97debfcceadd" height="600" style="display: inline-block; margin-right: 10px;">
 </p>
 
-__________________________________________
-
-<p>This repository is part of a series for a personal iOS development study project. This is the first version of the app. To track the progress and future updates, please visit the following link:
-Catto: Procrastination Time -> (https://github.com/meunomeecris/catto)</p>
-
-Feedback and contributions are always welcome! 
-    
